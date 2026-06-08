@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kargil Defence Academy | Phagi, Jaipur</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <style>
+        :root {
+            --army-green: #2E4031;
+            --navy-blue: #1A2E40;
+            --gold: #D4AF37;
+            --light-bg: #F5F7F5;
+            --text-dark: #222222;
+            --text-light: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--navy-blue);
+            color: var(--text-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            background-color: var(--army-green);
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .top-bar-info span {
+            margin-right: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 46, 64, 0.85), rgba(46, 64, 49, 0.85)), url('https://images.unsplash.com/photo-1590133325985-2c64da1ffb07?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: var(--text-light);
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: var(--gold);
+            color: var(--navy-blue);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #f1c40f;
+            transform: translateY(-2px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--navy-blue);
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            color: var(--army-green);
+            margin-bottom: 15px;
+        }
+
+        .about-features {
+            margin-top: 20px;
+            list-style: none;
+        }
+
+        .about-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--army-green);
+        }
+
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--text-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--gold);
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-info {
+            padding: 25px;
+        }
+
+        .course-info h3 {
+            color: var(--navy-blue);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--navy-blue);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item p {
+            font-size: 1.05rem;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background-color: var(--army-green);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1c291f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-bar { flex-direction: column; text-align: center; gap: 5px; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .hero h2 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .about-grid, .contact-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span><i data-lucide="phone" size="14"></i> +91 9785505270</span>
+            <span><i data-lucide="mail" size="14"></i> contact@kargildefence.com</span>
+        </div>
+        <div>
+            <span><i data-lucide="map-pin" size="14"></i> Phagi, Jaipur, Rajasthan</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>KARGIL DEFENCE ACADEMY</h1>
+                <p>PHAGI BRANCH | JAIPUR</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <h2>TRAIN TO LEAD. SERVE WITH HONOR.</h2>
+        <p>Rajasthan's premier defense training institute, preparing the next generation of officers for the Indian Armed Forces (Army, Navy, Air Force).</p>
+        <a href="#contact" class="btn">Enquire Now</a>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Our Academy</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Shaping Tomorrow's Military Leaders</h3>
+                <p>Kargil Defence Academy is dedicated to addressing the critical shortage of officers in the Indian Armed Forces by providing top-tier guidance, systematic academic coverage, and robust physical conditioning.</p>
+                <p style="margin-top: 10px;">Our Phagi branch brings customized learning models directly to competitive candidates in the Jaipur district, bridging the rural-urban training gap seamlessly.</p>
+                <ul class="about-features">
+                    <li><i data-lucide="check-circle" style="color:var(--gold)"></i> Experienced Ex-Armed Forces Mentors</li>
+                    <li><i data-lucide="check-circle" style="color:var(--gold)"></i> Rigorous Written & SSB Interview Frameworks</li>
+                    <li><i data-lucide="check-circle" style="color:var(--gold)"></i> Complete Physical Fitness Ground Training</li>
+                    <li><i data-lucide="check-circle" style="color:var(--gold)"></i> Personality Development & English Communication</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1508847154043-be12a62861c1?auto=format&fit=crop&q=80&w=800" alt="Defense training facility">
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Offered Section -->
+    <section id="courses" style="background-color: #eef1ee;">
+        <h2 class="section-title">Our Specialized Programs</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>NDA Course</h3>
+                    <p>Comprehensive preparation tracking UPSC syllabus (Mathematics & General Ability Test) alongside preliminary physical conditioning for 10+2 students.</p>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>CDS / AFCAT</h3>
+                    <p>Tailored batches focusing on advanced aptitude, static GK, and defense specific strategies for graduates looking to join IMA, OTA, or AFA.</p>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>SSB Training</h3>
+                    <p>Interactive screening, psychology analysis, and GTO practice modules orchestrated by highly decorated panel reviewers.</p>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-info">
+                    <h3>Air Force / Navy (Solder Cadres)</h3>
+                    <p>Dedicated fast-track coaching targeting written and physical agility requirements for multi-stream technical and non-technical recruitment exams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Enquiry Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <i data-lucide="map-pin" style="color: var(--gold); margin-top: 5px;"></i>
+                    <p><strong>Campus Address:</strong><br>Kargil Defence Academy Campus,<br>Phagi, Jaipur Pin - 303005,<br>Rajasthan, India.</p>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="phone" style="color: var(--gold);"></i>
+                    <p><strong>Phone Support:</strong><br>+91 9785505270 / +91 9413347270</p>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="mail" style="color: var(--gold);"></i>
+                    <p><strong>Email Address:</strong><br>ssbkargil@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="clock" style="color: var(--gold);"></i>
+                    <p><strong>Office Hours:</strong><br>Monday - Sunday: 8:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 20px; color: var(--army-green)">Admission Enquiry Form</h3>
+                <form action="#" method="POST" onsubmit="alert('Thank you for reaching out! Our admissions desk will call you shortly.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter candidate's name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter active contact number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Interested Course</label>
+                        <input type="text" id="course" placeholder="e.g. NDA, CDS, AirForce">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message/Queries</label>
+                        <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Details</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kargil Defence Academy (Phagi, Jaipur). All Rights Reserved.</p>
+        <p style="font-size: 0.75rem; margin-top: 5px; color:#666;">Disclaimer: This webpage is a stylized digital draft created for administration representation.</p>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
